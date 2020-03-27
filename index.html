@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+  <img src="img/marmoset-header.png" alt="marmoset header" class="marmo-header">
+  <div class="contain-top">
+    <div id="work-bench">
+      <nav style="height: 80px;
+        width: 100vw">
+        <ul>
+          <li class="top-button-left">FILTER</li>
+          <li class="top-button-right unclickable">SEARCH</li>
+        </ul>
+      </nav>
+
+      <nav class="filter">
+        <div class="wrap-customization-btns">
+          <p>
+
+<!-- CASEY - THIS IS WHERE THE CIRCLE BEGINS -->
+
+            <div id="pin1">
+              <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
+              <div id="pin1Body"> O </div>
+            </div>
+
+<!-- THIS IS WHERE THE  -->
+            <a href="#mood" class="btn-two btn-two-pill">MOOD</a>
+            <a href="#energy" class="btn-two btn-two-pill">ENERGY</a>
+            <a href="#arc" class="btn-two btn-two-pill">ARC™</a>
+            <a href="#length" class="btn-two btn-two-pill">LENGTH</a>
+            <a href="#vocals" class="btn-two btn-two-pill">VOCALS</a>
+            <a href="#instruments" class="btn-two btn-two-pill">INSTRUMENTS</a>
+            <a href="#genres" class="btn-two btn-two-pill">GENRES</a>
+            <a href="#customizable" class="btn-two btn-two-pill">CUSTOMIZABLE</a>
+            <a href="#customizable" class="btn-two btn-two-pill btn-two-selected">MOBILE</a>
+          </p>
+          <ul class="container-ul-mobile">
+            <li class="mobile-music">
+              <a href="#" class="mobile-options">Mobile Music</a>
+            </li>
+            <li class="mobile-sfx">
+              <a href="#" class="mobile-options">Mobile SFX</a>
+            </li>
+          </ul>
+
+
+          <div class="container">
+            <!-- First Step (Enter Name) -->
+
+            <div class="text-center" id="mobile-music">
+              <img src="img/mobile-music-img.png" alt="music" style="width: 100vw;">
+            </div>
+
+            <div class="text-center" id="mobile-sfx">
+              <img src="img/marmoset-sfx-img.png" alt="sfx" style="width: 100vw;">
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="js/scripts.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous"></script>
+<script>dragElement(document.getElementById("mydiv"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    // if present, the header is where you move the DIV from:
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV:
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+</html>
